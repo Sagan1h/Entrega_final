@@ -15,7 +15,7 @@ urlpatterns = [
     path('cambiarContraseña/', views.CambiarContraseña.as_view(), name="CambiarContraseña"),
     
     path('pages/', views.BlogsListView.as_view(), name="blogs_list"),
-    path('pages/crear', views.BlogsCreateView.as_view(), name="crear_list"),
+    path('pages/crear', views.BlogsCreateView.as_view(), name="crear_blogs"),
     path('pages/<pk>', views.BlogsDetailView.as_view(), name="detalle_blog"),
     path('pages/<pk>/editar', views.BlogsUpdateView.as_view(), name="editar_blog"),
     path('pages/<pk>/eliminar', views.BlogsDeleteView.as_view(), name="eliminar_blog"),

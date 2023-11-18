@@ -12,9 +12,6 @@ class Blogs(models.Model):
     fecha = models.DateField()
     imagen = models.ImageField()
     
-    def __str__(self) -> str:
-        return f"Nombre: {self.nombre} - Apellido: {self.apellido} - Email: {self.email}"
-    
 class Avatar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to="avatares", null=True, blank=True)

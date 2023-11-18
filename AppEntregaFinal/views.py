@@ -39,7 +39,7 @@ class BlogsUpdateView(UpdateView):
     model = Blogs
     template_name = "editar_blog.html"
     success_url = reverse_lazy("blogs_list")
-    fields = ["nombre", "apellido", "email"]
+    fields = ["titulo", "subtitulo", "descripcion", "autor", "fecha", "imagen"]
 
 class BlogsDeleteView(DeleteView):
     model = Blogs
