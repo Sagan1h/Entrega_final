@@ -1,0 +1,17 @@
+{% extends "./padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h1>Listado de Blogs</h1>
+    <ul>
+        {% for blogs in blog %}
+            <li>{{ blogs.titulo }} : {{ blogs.subtitulo }} 
+                <a href="{% url 'detalle_blog' blog.id %}">Ver</a>
+                <a href="{% url 'editar_blog' blog.id %}">Editar</a>
+                <a href="{% url 'eliminar_blog' blog.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_list' %}">Agregar Blog</a>
+{% endblock contenidoQueCambia %}

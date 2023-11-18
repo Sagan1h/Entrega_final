@@ -1,0 +1,18 @@
+{% extends "./padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h2>Editar perfil de {{usuario}}</h2>
+
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <table>
+            {{mi_formulario}}
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
+    <button type="button">
+        <a class="navbar-brand" href="{% url 'CambiarContraseña' %}">Cambiar Contraseña</a>
+    </button>
+{% endblock contenidoQueCambia %}

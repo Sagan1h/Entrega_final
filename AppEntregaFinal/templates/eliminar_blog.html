@@ -1,0 +1,13 @@
+{% extends "./padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h1>Eliminar Blog</h1>
+    <p>¿Estás seguro de que deseas eliminar el blog "{{ blogs.titulo }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'blogs_list' %}">Cancelar y volver a la lista de blogs</a>
+{% endblock contenidoQueCambia %}

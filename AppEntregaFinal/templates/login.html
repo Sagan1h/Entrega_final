@@ -1,0 +1,33 @@
+{% extends "./padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h1>Iniciar Sesión</h1>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" id="passwordField" required>
+        <button type="button" id="togglePassword">✔</button>
+        <br>        
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <a href="{% url 'user_register' %}">Registrarse</a>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            var passwordField = document.getElementById('passwordField');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
+{% endblock contenidoQueCambia %}

@@ -1,0 +1,12 @@
+{% extends "./padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h1>Detalle Blog</h1>
+
+    <p>Nombre del Blog <i>{{blogs.titulo}}</i></p>
+    <p>
+        <a href="{% url 'blogs_list' %}">Regresar</a>
+    </p>
+{% endblock contenidoQueCambia %}

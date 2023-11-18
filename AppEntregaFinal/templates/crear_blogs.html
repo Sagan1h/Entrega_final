@@ -1,0 +1,12 @@
+{% extends "./padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<h1>Agregar Blog</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Crear Blog</button>
+</form>
+{% endblock contenidoQueCambia %}
