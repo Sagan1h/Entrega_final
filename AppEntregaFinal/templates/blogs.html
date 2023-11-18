@@ -5,11 +5,13 @@
 {% block contenidoQueCambia %}
     <h1>Listado de Blogs</h1>
     <ul>
-        {% for blogs in blog %}
-            <li>{{ blogs.titulo }} : {{ blogs.subtitulo }} 
-                <a href="{% url 'detalle_blog' blog.id %}">Ver</a>
-                <a href="{% url 'editar_blog' blog.id %}">Editar</a>
-                <a href="{% url 'eliminar_blog' blog.id %}">Eliminar</a>
+        {% for blog in blogs %}
+            <li>{{ blog.titulo }} / {{ blog.fecha }}
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'detalle_blog' blog.id %}">Ver</a>
+                    <a href="{% url 'editar_blog' blog.id %}">Editar</a>
+                    <a href="{% url 'eliminar_blog' blog.id %}">Eliminar</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

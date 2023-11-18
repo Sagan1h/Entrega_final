@@ -3,9 +3,11 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h1>Detalle Blog</h1>
-
-    <p>Nombre del Blog <i>{{blogs.titulo}}</i></p>
+    <h1>{{blogs.titulo}}</h1>
+    <h2>{{blogs.subtitulo}}</h2>
+    <h7>{{blogs.descripcion}}</h7>
+    <h4>{{blogs.autor}}</h4>
+    <h5>{{blogs.fecha}}</h5>
     <p>
         <a href="{% url 'blogs_list' %}">Regresar</a>
     </p>
