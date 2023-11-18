@@ -11,7 +11,7 @@ urlpatterns = [
     path('login/', views.user_login, name="user_login"),
     path('logout/', LogoutView.as_view(template_name="logout.html"), name="Logout"),
     path('register/', views.user_register, name="user_register"),
-    path('editarPerfil/', views.editarPerfil, name="editarPerfil"),
+    path('editarPerfil/', views.editarPerfil, name="EditarPerfil"),
     path('cambiarContraseña/', views.CambiarContraseña.as_view(), name="CambiarContraseña"),
     
     path('pages/', views.BlogsListView.as_view(), name="blogs_list"),
@@ -21,4 +21,4 @@ urlpatterns = [
     path('pages/<pk>/eliminar', views.BlogsDeleteView.as_view(), name="eliminar_blog"),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

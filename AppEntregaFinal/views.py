@@ -59,7 +59,6 @@ def user_login(request):
             return render(request, 'login.html', {'error': 'Nombre de usuario o contraseña incorrectos.'})
     return render(request, 'login.html') 
 
-@login_required
 def user_register(request):
     if request.method == 'POST':
         form = UserCreationFormCustom(request.POST)
@@ -70,7 +69,7 @@ def user_register(request):
         form = UserCreationFormCustom()
         return render(request, 'register.html', {'form': form})      
 
-
+@login_required
 def editarPerfil(request):
     usuario = request.user
     if request.method == "POST":
@@ -79,6 +78,7 @@ def editarPerfil(request):
             if mi_formulario.cleaned_data.get("imagen"):
                 usuario.avatar.imagen = mi_formulario.cleaned_data.get("imagen")
                 usuario.avatar.save()
+                
             mi_formulario.save()
             return redirect("inicio")
     else:

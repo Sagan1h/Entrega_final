@@ -10,7 +10,7 @@ class Blogs(models.Model):
     descripcion = RichTextField()
     autor = models.CharField(max_length=100)
     fecha = models.DateField()
-    imagen = models.ImageField(upload_to="blogimagen", null=True, blank=True)
+    imagen = models.ImageField()
     
 class Avatar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
