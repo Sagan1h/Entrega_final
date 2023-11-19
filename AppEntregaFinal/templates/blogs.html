@@ -3,16 +3,21 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h1>Listado de Blogs</h1>
+    <header class="py-5 bg-light border-bottom mb-4">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1 class="fw-bolder">¡Bienvenidos a la página de inicio del blog!</h1>
+            </div>
+        </div>
+    </header>
     <ul>
         {% for blog in blogs %}
             <li>{{ blog.titulo }} / {{ blog.fecha }}
             <div class="card mb-4">
-                <a href=""><img class="card-img-top" src="" alt="" height="100px" /></a>
+                <a href=""><img class="card-img-top" src="" alt="" height="50px" /></a>
                 <div class="card-body">
                     <div class="small text-muted">{{ blog.fecha }}</div>
                     <h2 class="card-title h4">{{ blog.titulo }}</h2>
-                    <p class="card-text">{{ blog.descripcion }}</p>
                     <a class="btn btn-primary" href="{% url 'detalle_blog' blog.id %}">Ver mas</a>
                     {% if request.user.is_authenticated %}
                         <a class="btn btn-primary" href="{% url 'editar_blog' blog.id %}">Editar</a>

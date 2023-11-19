@@ -3,11 +3,26 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h1>{{blogs.titulo}}</h1>
-    <h2>{{blogs.subtitulo}}</h2>
-    <h7>{{blogs.descripcion}}</h7>
-    <h4>{{blogs.autor}}</h4>
-    <h5>{{blogs.fecha}}</h5>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{blogs.titulo}}</h1>
+                    <h3 class="fw-bolder mb-1">{{blogs.subtitulo}}</h3>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Posteado el {{blogs.fecha}} por {{blogs.autor}}</div>
+                </header>
+                <!-- Preview image figure-->
+                <figure class="mb-4"><img class="img-fluid rounded" src="" alt="..." /></figure>
+                <!-- Post content-->
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">{{blogs.descripcion}}</p>
+                </section>
+            </article>
     <p>
         <a href="{% url 'blogs_list' %}">Regresar</a>
     </p>
