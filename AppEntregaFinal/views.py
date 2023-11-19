@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Blogs
 from .forms import UserCreationFormCustom, UserEditForm
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView

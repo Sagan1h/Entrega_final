@@ -17,7 +17,7 @@
                     <div class="text-muted fst-italic mb-2">Posteado el {{blogs.fecha}} por {{blogs.autor}}</div>
                 </header>
                 <!-- Preview image figure-->
-                <figure class="mb-4"><img class="img-fluid rounded" src="" alt="..." /></figure>
+                <a href=""><img class="card-img-top" src="{{ blogs.imagen.url }}" alt="" style="max-width: 50%;" /></a>
                 <!-- Post content-->
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{blogs.descripcion}}</p>
