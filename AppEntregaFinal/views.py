@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Blogs
+from .models import Blogs, Avatar
 from .forms import UserCreationFormCustom, UserEditForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -76,17 +76,22 @@ def user_register(request):
 def editarPerfil(request):
     usuario = request.user
     if request.method == "POST":
-        mi_formulario = UserEditForm(request.POST, request.FILES,instance=request.user) 
+        mi_formulario = UserEditForm(request.POST, request.FILES, instance=usuario) 
         if mi_formulario.is_valid():
-            if mi_formulario.cleaned_data.get("imagen"):
-                usuario.avatar.imagen = mi_formulario.cleaned_data.get("imagen")
-                usuario.avatar.save()
-                
+            if hasattr(usuario, 'avatar'):
+                nueva_imagen = mi_formulario.cleaned_data.get("imagen")
+                if nueva_imagen:
+                    usuario.avatar.imagen = nueva_imagen
+                    usuario.avatar.save()
+            else:
+                nueva_imagen = mi_formulario.cleaned_data.get("imagen")
+                if nueva_imagen:
+                    Avatar.objects.create(user=usuario, imagen=nueva_imagen)
             mi_formulario.save()
             return redirect("inicio")
     else:
-        mi_formulario = UserEditForm(initial={"imagen" : usuario.avatar.imagen} ,instance=request.user)
-    return render(request, "editarPerfil.html", {"mi_formulario" : mi_formulario, "usuario" : usuario})
+        mi_formulario = UserEditForm(instance=usuario)
+    return render(request, "editarPerfil.html", {"mi_formulario": mi_formulario, "usuario": usuario})
 
 class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
     template_name = "cambiar_contraseña.html"

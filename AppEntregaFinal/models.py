@@ -11,6 +11,8 @@ class Blogs(models.Model):
     autor = models.CharField(max_length=100)
     fecha = models.DateField()
     imagen = models.ImageField(upload_to="blogimagen", null=True, blank=True)
+    def __str__(self):
+        return f"{self.titulo} - {self.autor} - {self.fecha}"
     
 class Avatar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
