@@ -95,5 +95,4 @@ def editarPerfil(request):
 
 class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
     template_name = "cambiar_contraseña.html"
-    success_url = reverse_lazy("editarPerfil")
-
+    success_url = reverse_lazy("inicio")
