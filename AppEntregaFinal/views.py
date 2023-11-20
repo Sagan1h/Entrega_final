@@ -15,6 +15,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def inicio(request):
     return render(request, "inicio.html")
 
+def about(request):
+    return render(request, "about.html")
+
 def blogs_list(request):
     blogs = Blogs.objects.all()
     print(blogs)
